@@ -10,3 +10,17 @@ header {
 li {
     list-style: none;
 }
+
+.card-deck {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: auto;
+}
+
+.list-group  a {
+    text-align: center;
+    background-color: aqua;
+}
