@@ -20,7 +20,7 @@ li {
     width: 150px;
 }
 
-.list-group  a {
+.list-group button{
     text-align: center;
     background-color: aqua;
 }
