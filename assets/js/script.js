@@ -32,6 +32,16 @@ function citySearch() {
         .then(function (data) {
           console.log(data);
 
+          var today = dayjs().format('MM/DD/YYYY');
+          var cityNameEl = document.querySelector("#cityName");
+          var tempTodayEl = document.querySelector("#tempToday");
+          var windTodayEl = document.querySelector("#windToday");
+          var humidityTodayEl = document.querySelector("#humidityToday");
+
+          cityNameEl.textContent = data.city.name + " " + today + " " + data.list[0].weather[0].icon
+          tempTodayEl.textContent = "Temp: " + data.list[0].main.temp + " \u00B0F"
+          windTodayEl.textContent = "Wind: " + data.list[0].wind.speed
+          humidityTodayEl.textContent = "Humidity: " + data.list[0].main.humidity
           
         });
     }
