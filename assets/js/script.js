@@ -38,7 +38,8 @@ function citySearch() {
           var windTodayEl = document.querySelector("#windToday");
           var humidityTodayEl = document.querySelector("#humidityToday");
 
-          cityNameEl.textContent = data.city.name + " (" + today + ") " + data.list[0].weather[0].icon
+          cityNameEl.textContent = data.city.name + " (" + today + ") "
+          $('#iconToday').attr("src","https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png");
           tempTodayEl.textContent = "Temp: " + data.list[0].main.temp + " \u00B0F"
           windTodayEl.textContent = "Wind: " + data.list[0].wind.speed
           humidityTodayEl.textContent = "Humidity: " + data.list[0].main.humidity
@@ -55,12 +56,14 @@ function citySearch() {
           nextDate4El.textContent = dayjs().add(4, 'day').format('MM/DD/YYYY');
           nextDate5El.textContent = dayjs().add(5, 'day').format('MM/DD/YYYY');
 
-          $("#nextIcon1").text(data.list[5].weather[0].icon);
-          $("#nextIcon2").text(data.list[13].weather[0].icon);
-          $("#nextIcon3").text(data.list[21].weather[0].icon);
-          $("#nextIcon4").text(data.list[29].weather[0].icon);
-          $("#nextIcon5").text(data.list[37].weather[0].icon);
+          var iconUrl = "http://openweathermap.org/img/w/03d.png";
 
+          $('#nextIcon1').attr("src","http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png");
+          $('#nextIcon2').attr("src","http://openweathermap.org/img/w/" + data.list[13].weather[0].icon + ".png");
+          $('#nextIcon3').attr("src","http://openweathermap.org/img/w/" + data.list[21].weather[0].icon + ".png");
+          $('#nextIcon4').attr("src","http://openweathermap.org/img/w/" + data.list[29].weather[0].icon + ".png");
+          $('#nextIcon5').attr("src","http://openweathermap.org/img/w/" + data.list[37].weather[0].icon + ".png");
+          
           $("#nextTemp1").text(data.list[0].main.temp + " \u00B0F");
           $("#nextTemp2").text(data.list[13].main.temp + " \u00B0F");
           $("#nextTemp3").text(data.list[21].main.temp + " \u00B0F");
@@ -78,6 +81,8 @@ function citySearch() {
           $("#nextHumid3").text(data.list[21].main.humidity);
           $("#nextHumid4").text(data.list[29].main.humidity);
           $("#nextHumid5").text(data.list[37].main.humidity);
+
+          // http://openweathermap.org/img/w/03d.png
           
         });
     }
