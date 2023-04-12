@@ -54,7 +54,30 @@ function citySearch() {
           nextDate3El.textContent = dayjs().add(3, 'day').format('MM/DD/YYYY');
           nextDate4El.textContent = dayjs().add(4, 'day').format('MM/DD/YYYY');
           nextDate5El.textContent = dayjs().add(5, 'day').format('MM/DD/YYYY');
+
+          $("#nextIcon1").text(data.list[5].weather[0].icon);
+          $("#nextIcon2").text(data.list[13].weather[0].icon);
+          $("#nextIcon3").text(data.list[21].weather[0].icon);
+          $("#nextIcon4").text(data.list[29].weather[0].icon);
+          $("#nextIcon5").text(data.list[37].weather[0].icon);
+
+          $("#nextTemp1").text(data.list[0].main.temp + " \u00B0F");
+          $("#nextTemp2").text(data.list[13].main.temp + " \u00B0F");
+          $("#nextTemp3").text(data.list[21].main.temp + " \u00B0F");
+          $("#nextTemp4").text(data.list[29].main.temp + " \u00B0F");
+          $("#nextTemp5").text(data.list[37].main.temp + " \u00B0F");
           
+          $("#nextWind1").text(data.list[5].wind.speed);
+          $("#nextWind2").text(data.list[13].wind.speed);
+          $("#nextWind3").text(data.list[21].wind.speed);
+          $("#nextWind4").text(data.list[29].wind.speed);
+          $("#nextWind5").text(data.list[37].wind.speed);
+
+          $("#nextHumid1").text(data.list[5].main.humidity);
+          $("#nextHumid2").text(data.list[13].main.humidity);
+          $("#nextHumid3").text(data.list[21].main.humidity);
+          $("#nextHumid4").text(data.list[29].main.humidity);
+          $("#nextHumid5").text(data.list[37].main.humidity);
           
         });
     }
