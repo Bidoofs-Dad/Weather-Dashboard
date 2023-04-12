@@ -33,36 +33,24 @@ function citySearch() {
           console.log(data);
 
           var today = dayjs().format('MM/DD/YYYY');
-          var cityNameEl = document.querySelector("#cityName");
-          var tempTodayEl = document.querySelector("#tempToday");
-          var windTodayEl = document.querySelector("#windToday");
-          var humidityTodayEl = document.querySelector("#humidityToday");
 
-          cityNameEl.textContent = data.city.name + " (" + today + ") "
-          $('#iconToday').attr("src","https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png");
-          tempTodayEl.textContent = "Temp: " + data.list[0].main.temp + " \u00B0F"
-          windTodayEl.textContent = "Wind: " + data.list[0].wind.speed
-          humidityTodayEl.textContent = "Humidity: " + data.list[0].main.humidity
+          $("#cityName").text(data.city.name + " (" + today + ") ");
+          $("#iconToday").attr("src","https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png");
+          $("#tempToday").text("Temp: " + data.list[0].main.temp + " \u00B0F");
+          $("#windToday").text("Wind: " + data.list[0].wind.speed + " MPH");
+          $("#humidityToday").text("Humidity: " + data.list[0].main.humidity + " %");
 
-          var nextDate1El = document.querySelector("#nextDate1");
-          var nextDate2El = document.querySelector("#nextDate2");
-          var nextDate3El = document.querySelector("#nextDate3");
-          var nextDate4El = document.querySelector("#nextDate4");
-          var nextDate5El = document.querySelector("#nextDate5");
+          $("#nextDate1").text(dayjs().add(1, 'day').format('MM/DD/YYYY'));
+          $("#nextDate2").text(dayjs().add(2, 'day').format('MM/DD/YYYY'));
+          $("#nextDate3").text(dayjs().add(3, 'day').format('MM/DD/YYYY'));
+          $("#nextDate4").text(dayjs().add(4, 'day').format('MM/DD/YYYY'));
+          $("#nextDate5").text(dayjs().add(5, 'day').format('MM/DD/YYYY'));
 
-          nextDate1El.textContent = dayjs().add(1, 'day').format('MM/DD/YYYY');
-          nextDate2El.textContent = dayjs().add(2, 'day').format('MM/DD/YYYY');
-          nextDate3El.textContent = dayjs().add(3, 'day').format('MM/DD/YYYY');
-          nextDate4El.textContent = dayjs().add(4, 'day').format('MM/DD/YYYY');
-          nextDate5El.textContent = dayjs().add(5, 'day').format('MM/DD/YYYY');
-
-          var iconUrl = "http://openweathermap.org/img/w/03d.png";
-
-          $('#nextIcon1').attr("src","http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png");
-          $('#nextIcon2').attr("src","http://openweathermap.org/img/w/" + data.list[13].weather[0].icon + ".png");
-          $('#nextIcon3').attr("src","http://openweathermap.org/img/w/" + data.list[21].weather[0].icon + ".png");
-          $('#nextIcon4').attr("src","http://openweathermap.org/img/w/" + data.list[29].weather[0].icon + ".png");
-          $('#nextIcon5').attr("src","http://openweathermap.org/img/w/" + data.list[37].weather[0].icon + ".png");
+          $("#nextIcon1").attr("src","http://openweathermap.org/img/w/" + data.list[5].weather[0].icon + ".png");
+          $("#nextIcon2").attr("src","http://openweathermap.org/img/w/" + data.list[13].weather[0].icon + ".png");
+          $("#nextIcon3").attr("src","http://openweathermap.org/img/w/" + data.list[21].weather[0].icon + ".png");
+          $("#nextIcon4").attr("src","http://openweathermap.org/img/w/" + data.list[29].weather[0].icon + ".png");
+          $("#nextIcon5").attr("src","http://openweathermap.org/img/w/" + data.list[37].weather[0].icon + ".png");
           
           $("#nextTemp1").text(data.list[0].main.temp + " \u00B0F");
           $("#nextTemp2").text(data.list[13].main.temp + " \u00B0F");
@@ -70,17 +58,17 @@ function citySearch() {
           $("#nextTemp4").text(data.list[29].main.temp + " \u00B0F");
           $("#nextTemp5").text(data.list[37].main.temp + " \u00B0F");
           
-          $("#nextWind1").text(data.list[5].wind.speed);
-          $("#nextWind2").text(data.list[13].wind.speed);
-          $("#nextWind3").text(data.list[21].wind.speed);
-          $("#nextWind4").text(data.list[29].wind.speed);
-          $("#nextWind5").text(data.list[37].wind.speed);
+          $("#nextWind1").text(data.list[5].wind.speed + " MPH");
+          $("#nextWind2").text(data.list[13].wind.speed + " MPH");
+          $("#nextWind3").text(data.list[21].wind.speed + " MPH");
+          $("#nextWind4").text(data.list[29].wind.speed + " MPH");
+          $("#nextWind5").text(data.list[37].wind.speed + " MPH");
 
-          $("#nextHumid1").text(data.list[5].main.humidity);
-          $("#nextHumid2").text(data.list[13].main.humidity);
-          $("#nextHumid3").text(data.list[21].main.humidity);
-          $("#nextHumid4").text(data.list[29].main.humidity);
-          $("#nextHumid5").text(data.list[37].main.humidity);
+          $("#nextHumid1").text(data.list[5].main.humidity + " %");
+          $("#nextHumid2").text(data.list[13].main.humidity + " %");
+          $("#nextHumid3").text(data.list[21].main.humidity + " %");
+          $("#nextHumid4").text(data.list[29].main.humidity + " %");
+          $("#nextHumid5").text(data.list[37].main.humidity + " %");
 
           // http://openweathermap.org/img/w/03d.png
           
