@@ -1,8 +1,9 @@
-var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
 var city = document.querySelector("#citySearch");
 var searchBtnEl = document.querySelector("#searchBtn");
-var getCoordinates = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
 var cityList = document.querySelector("#cityList");
+
+
+
 
 
 function displayCities() {
@@ -13,7 +14,6 @@ function displayCities() {
 function citySearch() {
   searchBtnEl.addEventListener("click", function () {
     var cityValue = city.value;
-    console.log(cityValue);
     localStorage.setItem(cityValue, cityValue);
     city.value = "";
 
@@ -22,11 +22,28 @@ function citySearch() {
     newCityBtn.setAttribute("type", "button");
     newCityBtn.textContent = cityValue;
     cityList.appendChild(newCityBtn);
+
+    function test() {
+      var getCoordinates = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
+      fetch(getCoordinates)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+
+          
+        });
+    }
+    test();
+
+
   });
+  
 
   for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
-    if (key !== "test") {
+    if (key !== "") {
       var newCityBtn = document.createElement("button");
       newCityBtn.setAttribute("class", "list-group-item list-group-item-action");
       newCityBtn.setAttribute("type", "button");
@@ -36,6 +53,8 @@ function citySearch() {
   }
 }
 citySearch()
+
+
 
 //<!-- <a href="#" class="list-group-item list-group-item-action"></a> -->
 
