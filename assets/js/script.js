@@ -3,6 +3,7 @@ var searchBtnEl = document.querySelector("#searchBtn");
 var cityList = document.querySelector("#cityList");
 var today = dayjs().format('MM/DD/YYYY');
 
+//This block of ids just make it so you can see today's date as well as the next five dates in their respective spots
 $("#cityName").text("City Name (" + today + ")");
 $("#nextDate1").text(dayjs().add(1, 'day').format('MM/DD/YYYY'));
 $("#nextDate2").text(dayjs().add(2, 'day').format('MM/DD/YYYY'));
@@ -10,12 +11,9 @@ $("#nextDate3").text(dayjs().add(3, 'day').format('MM/DD/YYYY'));
 $("#nextDate4").text(dayjs().add(4, 'day').format('MM/DD/YYYY'));
 $("#nextDate5").text(dayjs().add(5, 'day').format('MM/DD/YYYY'));
 
-function displayCities() {
-  const citiesList = document.querySelector(".list-group");
-  citiesList.innerHTML = "";
-}
-
+//This is the whole function
 function citySearch() {
+  //This makes it so once you press the search button, it clears the text box and sets the city name in local storage
   searchBtnEl.addEventListener("click", function () {
     var cityValue = city.value;
     localStorage.setItem(cityValue, cityValue);
@@ -27,9 +25,10 @@ function citySearch() {
     newCityBtn.textContent = cityValue;
     cityList.appendChild(newCityBtn);
 
-    function test() {
-      var getCoordinates = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&units=imperial&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
-      fetch(getCoordinates)
+    //This is the function that calls the api and pulls its data from it, then populating it into the designated spots
+    function cityData() {
+      var cityUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&units=imperial&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
+      fetch(cityUrl)
         .then(function (response) {
           return response.json();
         })
@@ -67,12 +66,13 @@ function citySearch() {
           $("#nextHumid5").text(data.list[37].main.humidity + " %");
         });
     }
-    test();
+    cityData();
 
 
   });
 
-
+//This for loop takes the search history buttons and uses thier textContent to run the fetch request again,
+//I had to define newCityBtn again in here for it to work properly
   for (var i = 0; i < localStorage.length; i++) {
     var key = localStorage.key(i);
     if (key !== "") {
@@ -85,8 +85,8 @@ function citySearch() {
       newCityBtn.addEventListener("click", function () {
         var cityValue = this.textContent;
 
-        var getCoordinates = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&units=imperial&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
-        fetch(getCoordinates)
+        var cityUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityValue + "&units=imperial&appid=0ed7ee275eef2d8b5bd098a35449f8a4";
+        fetch(cityUrl)
           .then(function (response) {
             return response.json();
           })
