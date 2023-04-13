@@ -22,7 +22,13 @@ I definitely ran into my fair share of issues with this project. I definitely le
 
 I will list some screenshots of the app in working order below!
 
-![Weather-Dashboard](/assets/images)
+![Weather-Dashboard](/assets/images/01%20Base.png)
+![Weather-Dashboard](/assets/images/02%20Minneapolis%20Search.png)
+![Weather-Dashboard](/assets/images/03%20Lindstrom.png)
+![Weather-Dashboard](/assets/images/04%20Butts.png)
+![Weather-Dashboard](/assets/images/05%20After%20Refresh.png)
+![Weather-Dashboard](/assets/images/06%20Dublin%20Button%20Clicked.png)
+![Weather-Dashboard](/assets/images/07%20Santa%20Monica%20Clicked.png)
 
 
 ## Conclusion
@@ -33,3 +39,4 @@ In conclusion, this was a good challenge, but boy did it test my mettle in some 
 
 Below is the link that will take you to the live website, hosted by GitHub Pages!
 
+https://bidoofs-dad.github.io/Weather-Dashboard/
